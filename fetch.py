@@ -11,6 +11,7 @@ The query used here is a POST request with a predefined query loaded from ./quer
 Saves age distribution data in file ./age_distribution.csv
 """
 
+import datetime
 import requests
 import json
 
@@ -60,7 +61,8 @@ for i in range(len(age_groups)):
     age_distribution[age_groups[i]] = values[i]
 
 # Save the age distribution data to a CSV file
+ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 with open('./age_distribution.csv', 'w') as file:
-    file.write("Ikä 31.12.2023,Määrä\n")
+    file.write("Aikaleima,Ikä 31.12.2023,Määrä\n")
     for age_group, value in age_distribution.items():
-        file.write(f"{age_group},{value}\n")
+        file.write(f"{ts},{age_group},{value}\n")
