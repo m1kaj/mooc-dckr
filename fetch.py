@@ -63,6 +63,6 @@ for i in range(len(age_groups)):
 # Save the age distribution data to a CSV file
 ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 with open('./age_distribution.csv', 'w') as file:
-    file.write("Aikaleima,Ikä 31.12.2023,Määrä\n")
+    file.write("Aikaleima,Määrä,Ikä\n")
     for age_group, value in age_distribution.items():
-        file.write(f"{ts},{age_group},{value}\n")
+        file.write(f"{ts},{value},{age_group}\n")
